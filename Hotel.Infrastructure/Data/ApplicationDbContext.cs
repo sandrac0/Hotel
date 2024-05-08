@@ -13,6 +13,7 @@ namespace Hotel.Infrastructure.Data
     
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
         public DbSet<Quartos>Quartos { get; set; }
+        public DbSet<Cliente>Clientes { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // base.OnModelCreating(modelBuilder);
@@ -41,6 +42,30 @@ namespace Hotel.Infrastructure.Data
                     Floor = 2
                 }
 
+                );
+            modelBuilder.Entity<Cliente>().HasData(
+                new Cliente
+                {
+    
+                    Id = 1,
+                   Name = "jose",
+                   QuartosId = 1
+                },
+
+                new Cliente
+                {
+                    Id = 2,
+                    Name = "tainara",
+                    QuartosId = 2
+                },
+
+                new Cliente
+                {
+                    Id = 3,
+                    Name = "andre",
+                    QuartosId = 3
+                }
+                
                 );
         }
     }  

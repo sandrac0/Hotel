@@ -79,6 +79,5 @@ namespace Hotel.Controllers
             }
             return View(obj);
         }
-
     }
 }
