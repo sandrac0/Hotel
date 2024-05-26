@@ -1,4 +1,6 @@
+using Hotel.Application.Common.Interface;
 using Hotel.Infrastructure.Data;
+using Hotel.Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +9,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddScoped<IUnityOfWork, UnityOfWork>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
